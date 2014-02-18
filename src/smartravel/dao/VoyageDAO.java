@@ -5,7 +5,10 @@
  */
 
 package smartravel.dao;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import smartravel.entities.Voyage;
+import smartravel.util.Connexion;
 /**
  *
  * @author Belgacem
@@ -15,8 +18,8 @@ public class VoyageDAO {
 
         String requete = "INSERT INTO Voyage VALUES (?)";
         try {
-            PreparedStatement ps = connection.getInstance().prepareStatement(requete);
-            ps.setString(1, d.getAdresse_depot());
+            PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
+            //ps.setString(1, v.getAdresse_depot()); a modfier
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
