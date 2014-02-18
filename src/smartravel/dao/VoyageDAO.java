@@ -5,11 +5,24 @@
  */
 
 package smartravel.dao;
-
+import smartravel.entities.Voyage;
 /**
  *
  * @author Belgacem
  */
 public class VoyageDAO {
+   public void insertDepot(Voyage v) {
+
+        String requete = "INSERT INTO Voyage VALUES (?)";
+        try {
+            PreparedStatement ps = connection.getInstance().prepareStatement(requete);
+            ps.setString(1, d.getAdresse_depot());
+            ps.executeUpdate();
+            System.out.println("Ajout effectuée avec succès");
+        } catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de l'insertion " + ex.getMessage());
+        }
+    }
     
 }
