@@ -51,4 +51,33 @@ public class Proposition_voyageDAO {
             return null;
         }
     }
+    
+    
+    public Voyage findVoyageById(int id) {
+        Voyage v = new Voyage();
+        String requete = "select * from voyage where id_voyage=?";
+        try {
+            PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
+            ps.setInt(1, id);
+            ResultSet resultat = ps.executeQuery();
+            while (resultat.next()) {
+                v.setId_voyage(resultat.getInt(1));
+                 v.setMoyen_transport(resultat.getString(2));
+                v.setDestination(resultat.getString(3));
+                v.setBudget(resultat.getFloat(4));
+                v.setNb_place(resultat.getInt(5));
+                v.setProgramme(resultat.getString(6));
+                v.setItineraire(resultat.getString(7));
+                v.setDate_depart(resultat.getDate(8));
+                v.setDate_retour(resultat.getDate(9));
+                v.setVoyage_responsable(resultat.getInt(10));
+            }
+            return v;
+
+        } catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la recherche du depot " + ex.getMessage());
+            return null;
+        }
+    }
 }
