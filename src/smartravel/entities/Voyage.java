@@ -17,12 +17,26 @@ public class Voyage {
     String moyen_transport;
    String  destination ;
    float budget ;
+   int nb_place;
+
+    
    String programme;
    String itineraire;
     Date date_depart;
     Date date_retour;
     int voyage_responsable;
 
+    
+    public int getNb_place() {
+        return nb_place;
+    }
+
+    public void setNb_place(int nb_place) {
+        this.nb_place = nb_place;
+    }
+    
+    
+    
     public int getId_voyage() {
         return id_voyage;
     }
@@ -95,7 +109,7 @@ public class Voyage {
         this.voyage_responsable = voyage_responsable;
     }
 
-    public Voyage(int id_voyage, String moyen_transport, String destination, float budget, String programme, String itineraire, Date date_depart, Date date_retour, int voyage_responsable) {
+    public Voyage(int id_voyage, String moyen_transport, String destination, float budget,int nb_place, String programme, String itineraire, Date date_depart, Date date_retour, int voyage_responsable) {
         this.id_voyage = id_voyage;
         this.moyen_transport = moyen_transport;
         this.destination = destination;
