@@ -15,6 +15,18 @@ public class facture {
     String n_serie;
     float somme_facture;
     Date date_payement_facture;
+    int facture_reservation; 
+
+    public int getFacture_reservation() {
+        return facture_reservation;
+    }
+
+    public void setFacture_reservation(int facture_reservation) {
+        this.facture_reservation = facture_reservation;
+    }
+
+    public facture() {
+    }
 
     public int getId_facture() {
         return id_facture;
@@ -48,7 +60,7 @@ public class facture {
         this.date_payement_facture = date_payement_facture;
     }
 
-    public facture(int id_facture, String n_serie, float somme_facture, Date date_payement_facture) {
+    public facture(int id_facture, String n_serie, float somme_facture, Date date_payement_facture,int facture_reservation) {
         this.id_facture = id_facture;
         this.n_serie = n_serie;
         this.somme_facture = somme_facture;
