@@ -11,9 +11,14 @@ public class AdminDAO {
   
     
     public AdminDAO(){
+            
   }
     
-    
+    public boolean authentication(){
+       
+        
+        return true ;
+       }
     
     
     

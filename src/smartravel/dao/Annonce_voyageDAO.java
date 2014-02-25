@@ -14,7 +14,8 @@ import smartravel.util.Connexion;
  * @author Belgacem
  */
 public class Annonce_voyageDAO {
-   public void insertDepot(Voyage v) {
+       
+        public void insertDepot(Voyage v) {
 
         String requete = "INSERT INTO Voyage VALUES (?)";
         try {
@@ -34,5 +35,5 @@ public class Annonce_voyageDAO {
             System.out.println("erreur lors de l'insertion " + ex.getMessage());
         }
     }
-    
+   
 }
