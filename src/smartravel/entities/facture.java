@@ -4,30 +4,35 @@
  */
 package smartravel.entities;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author MBM info
  */
 public class facture {
+  
     int id_facture;
-    String n_serie;
+    List<Voyageur> LV;
+    Voyageur V;
+    Reservation R;
     float somme_facture;
     Date date_payement_facture;
-    int facture_reservation; 
+    
 
-    public int getFacture_reservation() {
-        return facture_reservation;
-    }
-
-    public void setFacture_reservation(int facture_reservation) {
-        this.facture_reservation = facture_reservation;
-    }
+  
 
     public facture() {
     }
-
+public facture(int id_facture, List<Voyageur> LV,Voyageur V,Reservation R, float somme_facture,int facture_reservation) {
+        this.id_facture = id_facture;
+        this.LV=LV;
+        this.V=V;
+        this.R=R;
+        this.somme_facture = somme_facture;
+        this.date_payement_facture = new Date();
+    }
     public int getId_facture() {
         return id_facture;
     }
@@ -36,14 +41,29 @@ public class facture {
         this.id_facture = id_facture;
     }
 
-    public String getN_serie() {
-        return n_serie;
-    }
+   public List<Voyageur> getListVoyageur()
+   {return this.LV;}
+   
+   public void setListVoyageur(List<Voyageur> LV)
+   {this.LV=LV;}
 
-    public void setN_serie(String n_serie) {
-        this.n_serie = n_serie;
-    }
+   public Voyageur getVoyageur()
+{return this.V;}
 
+   
+   public void setVoyageur(Voyageur V)
+   {
+   this.V=V;
+   }
+   
+   public Reservation getReservation()
+   {
+   return this.R;
+   }
+   public void setReservation(Reservation R)
+   {
+   this.R=R;
+   }
     public float getSomme_facture() {
         return somme_facture;
     }
@@ -60,11 +80,6 @@ public class facture {
         this.date_payement_facture = date_payement_facture;
     }
 
-    public facture(int id_facture, String n_serie, float somme_facture, Date date_payement_facture,int facture_reservation) {
-        this.id_facture = id_facture;
-        this.n_serie = n_serie;
-        this.somme_facture = somme_facture;
-        this.date_payement_facture = date_payement_facture;
-    }
+    
     
 }
