@@ -19,12 +19,12 @@ public class ReservationDAO {
     
      public void insertDepot(Reservation R){
 
-        String requete = "insert into Reservation (id_Voyageur,id_Annonce,date_reservation) values (?,?,?)";
+        String requete = "insert into reservation (id_Voyageur,annonce,date) values (?,?)";
         try {
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             ps.setString(1, R.getVoyageur_R().toString());
             ps.setString(2, R.getAnnonce_R().toString());
-            ps.setDate(3, (Date) R.getDateReservation());
+           
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
@@ -37,7 +37,7 @@ public class ReservationDAO {
      public void updateDepot(Reservation R){
         String requete = "update depot set id_Voyageur= ? id_Annonce=?,date_reservation=? where id_Reservation=?";
         try {
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             ps.setString(1,  R.getVoyageur_R().toString());
             ps.setString(2, R.getAnnonce_R().toString());
             ps.setDate(3, (Date) R.getDateReservation());
@@ -54,7 +54,7 @@ public class ReservationDAO {
 
           String requete = "delete from reservation where id_reservation=?";
         try {
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             ps.setInt(1, num);
             ps.executeUpdate();
             System.out.println("Suppression effectuée avec succès");

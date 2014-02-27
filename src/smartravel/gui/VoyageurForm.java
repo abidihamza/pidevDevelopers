@@ -4,6 +4,11 @@
  */
 package smartravel.gui;
 
+import smartravel.dao.ReservationDAO;
+import smartravel.entities.Annonce;
+import smartravel.entities.Reservation;
+import smartravel.entities.Voyageur;
+
 /**
  *
  * @author wassou
@@ -86,8 +91,15 @@ public class VoyageurForm extends javax.swing.JFrame {
         });
 
         jTextField1.setText("jTextField1");
+        jTextField1.setName("a"); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setText("jTextField2");
+        jTextField2.setName("b"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -363,7 +375,18 @@ public class VoyageurForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        ReservationDAO R=new ReservationDAO();
+        Reservation Res=new Reservation();
+        String x=jTextField1.toString();
+        String y=jTextField1.toString();
+        Annonce A=new Annonce(x);
+        Voyageur V=new Voyageur(y);
+        Res.setAnnonce_R(A);
+        Res.setVoyageur_R(V);
+        
+        R.insertDepot(Res);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -373,6 +396,10 @@ public class VoyageurForm extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

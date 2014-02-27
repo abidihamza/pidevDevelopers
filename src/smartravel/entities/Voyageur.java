@@ -10,10 +10,13 @@ package smartravel.entities;
  *
  * @author Belgacem
  */
-public class Voyageur extends Compte {
+public class Voyageur  {
+    String id_Voyageur;
     
-    
-    public Voyageur(){
+    public Voyageur(){}
+    public Voyageur(String x){
+        
+        this.id_Voyageur=x;
     }
     
     

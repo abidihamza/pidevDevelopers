@@ -10,4 +10,10 @@ package smartravel.entities;
  */
 public class Annonce {
     
+    String id_annonce;
+    public Annonce(){}
+    public Annonce(String x)
+    {
+    this.id_annonce=x;
+    }
 }
