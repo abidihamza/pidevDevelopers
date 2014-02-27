@@ -21,7 +21,7 @@ public class Compte {
     public String email;
     public String password;
     public Date  date_inscrip ;
-    public String login ;
+   
     
     public Compte(){
     }
@@ -46,9 +46,7 @@ public class Compte {
         return date_inscrip;
     }
 
-    public String getLogin() {
-        return login;
-    }
+  
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -69,10 +67,7 @@ public class Compte {
     public void setDate_inscrip(Date date_inscrip) {
         this.date_inscrip = date_inscrip;
     }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  
     
     
     

@@ -10,10 +10,17 @@ package smartravel.entities;
  *
  * @author Belgacem
  */
-public class Administrateur {
+public class Administrateur extends Compte{
  
+     public String login ;
+     public Administrateur(){
     
-    public Administrateur(){
-    
+      }
+     
+     public String getLogin() {
+        return login;
+    }
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

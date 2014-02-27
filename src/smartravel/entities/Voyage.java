@@ -16,19 +16,23 @@ public class Voyage {
 
     public Voyage() {
     }
+     public Voyage() {
+    }
     int id_voyage;
     String moyen_transport;
    String  destination ;
    float budget ;
    int nb_place;
-
-    
+   
    String programme;
    String itineraire;
     Date date_depart;
     Date date_retour;
     int voyage_responsable;
 
+    public enum type{
+      Proposition,Annonce,Offre;
+     } 
     
     public int getNb_place() {
         return nb_place;
