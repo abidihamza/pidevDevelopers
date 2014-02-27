@@ -16,8 +16,7 @@ public class Voyage {
 
     public Voyage() {
     }
-     public Voyage() {
-    }
+     
     int id_voyage;
     String moyen_transport;
    String  destination ;

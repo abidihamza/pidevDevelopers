@@ -11,13 +11,8 @@ package smartravel.entities;
  * @author Belgacem
  */
 public class Voyageur  {
-    String id_Voyageur;
     
-    public Voyageur(){}
-    public Voyageur(String x){
-        
-        this.id_Voyageur=x;
-    }
+    
     
     
     
