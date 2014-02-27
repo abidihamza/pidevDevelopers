@@ -146,7 +146,7 @@ public class AthentForm extends javax.swing.JFrame implements ActionListener{
        Administrateur admin    ;
        admin = adminDao.authentication(name.getText());
               
-    if (name.getText().equals("admin") && passwd.getText().equals("0000")) {
+    if (passwd.getText().equals(admin.password) && name.getText().equals(admin.login)) {
         AdminForm adf = new AdminForm();
         adf.setVisible(true);
         this.setVisible(false);
