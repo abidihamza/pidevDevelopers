@@ -145,11 +145,13 @@ public class AthentForm extends javax.swing.JFrame implements ActionListener{
        AdminDAO adminDao = new AdminDAO() ;
        Administrateur admin    ;
        admin = adminDao.authentication(name.getText());
-              
+       
+       
     if (passwd.getText().equals(admin.password) && name.getText().equals(admin.login)) {
         AdminForm adf = new AdminForm();
-        adf.setVisible(true);
-        this.setVisible(false);
+         this.setVisible(false); 
+         adf.setVisible(true);
+      
                    }else
            JOptionPane.showMessageDialog(null, "invalid inseertion");
         

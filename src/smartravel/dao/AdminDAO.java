@@ -17,10 +17,13 @@ public class AdminDAO {
   }
         public Administrateur authentication(String login ){
        
-        String requete = "select * from administrateur where login ="+login;
+        String requete = "select * from administrateur where login ='admin'";
        try{
         PreparedStatement ps;
-            ps = Connexion.getInstance().prepareStatement(requete);
+          ps = Connexion.getInstance().prepareStatement(requete);
+               
+               if(ps != null)
+               System.out.println(" connexion établit ");
         ResultSet resultat = ps.executeQuery();
         Administrateur admin = new Administrateur();
         
