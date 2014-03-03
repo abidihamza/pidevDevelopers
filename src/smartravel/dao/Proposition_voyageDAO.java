@@ -62,7 +62,7 @@ public class Proposition_voyageDAO {
             ResultSet resultat = ps.executeQuery();
             while (resultat.next()) {
                 v.setId_voyage(resultat.getInt(1));
-                 v.setMoyen_transport(resultat.getString(2));
+                v.setMoyen_transport(resultat.getString(2));
                 v.setDestination(resultat.getString(3));
                 v.setBudget(resultat.getFloat(4));
                 v.setNb_place(resultat.getInt(5));

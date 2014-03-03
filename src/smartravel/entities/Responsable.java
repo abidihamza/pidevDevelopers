@@ -15,6 +15,8 @@ public class Responsable extends Compte{
     public String nom_agence ;
     public Number cin ;
     
+    public Responsable(){
+    }
     public Responsable(String nom,Number cin){
         this.nom_agence = nom;
         this.cin=cin;
