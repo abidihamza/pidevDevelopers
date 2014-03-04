@@ -25,6 +25,7 @@ public class Annonce_voyageDAO {
         String requete = "INSERT INTO Voyage VALUES (?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
+           System.out.println("xxxxxxxxxxx"); 
             ps.setString(2, v.getMoyen_transport()); 
             ps.setString(3, v.getDestination());
             ps.setFloat(4, v.getBudget());
