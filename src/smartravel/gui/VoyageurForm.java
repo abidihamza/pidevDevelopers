@@ -4,8 +4,9 @@
  */
 package smartravel.gui;
 
-import java.sql.Date;
+import java.util.Date;
 import smartravel.dao.*;
+import smartravel.entities.Voyage;
 
 
 import smartravel.entities.*;
@@ -413,12 +414,24 @@ public class VoyageurForm extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       
        Proposition_voyageDAO vdao=new Proposition_voyageDAO();
-       String destination=jTextField6.toString();
-        String budget=jTextField7.toString();
-         String date_depart=jTextField8.toString();
-          String date_arrivé=jTextField9.toString();
-       String itineraire=jTextArea1.toString();
-      //  Voyage v=new ( null, null, destination, budget, "", null, itineraire,  date_depart, date_retour, voyage_responsable);
+       String destination=jTextField6.getText();
+        String budget=jTextField7.getText();
+        String nbr_place=jTextField5.getText();
+        
+         Date date_depart=new Date(jTextField8.getText());
+          Date date_arrivé=new Date(jTextField9.getText());
+          String itineraire=jTextArea1.toString();
+        
+          Voyage v=new Voyage();
+       v.setDestination(destination);
+       v.setBudget(Float.parseFloat(budget));
+       v.setDate_depart( (java.sql.Date) date_depart);
+       v.setDate_retour((java.sql.Date) date_arrivé);
+       v.setItineraire(itineraire);
+       vdao.insertproposition(v);
+      
+       
+    
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

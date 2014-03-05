@@ -82,7 +82,7 @@ public class Proposition_voyageDAO {
     }
      public void insertproposition(Voyage v) {
 
-        String requete = "INSERT INTO Voyage VALUES (?)";
+        String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             ps.setString(2, v.getMoyen_transport()); 
