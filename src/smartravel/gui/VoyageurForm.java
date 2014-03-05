@@ -4,10 +4,11 @@
  */
 package smartravel.gui;
 
-import smartravel.dao.ReservationDAO;
-import smartravel.entities.Annonce;
-import smartravel.entities.Reservation;
-import smartravel.entities.Voyageur;
+import java.sql.Date;
+import smartravel.dao.*;
+
+
+import smartravel.entities.*;
 
 /**
  *
@@ -156,18 +157,38 @@ public class VoyageurForm extends javax.swing.JFrame {
 
         jLabel9.setText("destination");
 
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
         jLabel10.setText("budget");
+
+        jTextField7.setName("budget"); // NOI18N
 
         jLabel11.setText("nombre de place");
 
+        jTextField8.setName("nombre de place"); // NOI18N
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+
         jLabel12.setText("date depart");
 
+        jTextField9.setName("date_depart"); // NOI18N
+
         jLabel13.setText("date d'arrivée");
+
+        jTextField10.setName("date_arrivé"); // NOI18N
 
         jLabel14.setText("itineraire");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setName("itineraire"); // NOI18N
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton2.setText("ajouter");
@@ -390,7 +411,14 @@ public class VoyageurForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+      
+       Proposition_voyageDAO vdao=new Proposition_voyageDAO();
+       String destination=jTextField6.toString();
+        String budget=jTextField7.toString();
+         String date_depart=jTextField8.toString();
+          String date_arrivé=jTextField9.toString();
+       String itineraire=jTextArea1.toString();
+      //  Voyage v=new ( null, null, destination, budget, "", null, itineraire,  date_depart, date_retour, voyage_responsable);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -400,6 +428,14 @@ public class VoyageurForm extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     /**
      * @param args the command line arguments
