@@ -20,25 +20,33 @@ import java.util.List;
  */
 public class Annonce_voyageDAO {
        
+    public static int a=1;
         public void insertAnnonce(Voyage v) {
 
-        String requete = "INSERT INTO Voyage VALUES (?)";
+        String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
+           System.out.println("xxxxxxxxxxx"); 
+            ps.setInt(1, a); 
             ps.setString(2, v.getMoyen_transport()); 
             ps.setString(3, v.getDestination());
             ps.setFloat(4, v.getBudget());
             ps.setInt(5, v.getNb_place());
             ps.setString(6, v.getProgramme());
             ps.setString(7, v.getItineraire());
-            ps.setDate(8, v.getDate_depart());
-            ps.setDate(9, v.getDate_retour());
+            ps.setDate(8, new java.sql.Date(v.getDate_depart().getTime()));
+            ps.setDate(9,new java.sql.Date(v.getDate_retour().getTime()));
+
+            ps.setInt(10, -1);
+            ps.setString(11, "Annonce");
+
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion " + ex.getMessage());
         }
+        a=a+1;
     }
         
          public void updateAnnonce(Voyage v) {
@@ -51,8 +59,8 @@ public class Annonce_voyageDAO {
             ps.setInt(5, v.getNb_place());
             ps.setString(6, v.getProgramme());
             ps.setString(7, v.getItineraire());
-            ps.setDate(8, v.getDate_depart());
-            ps.setDate(9, v.getDate_retour());
+            ps.setDate(8, new java.sql.Date(v.getDate_depart().getTime()));
+            ps.setDate(9, new java.sql.Date(v.getDate_retour().getTime()));
             ps.executeUpdate();
             System.out.println("Mise à jour effectuée avec succès");
         } catch (SQLException ex) {

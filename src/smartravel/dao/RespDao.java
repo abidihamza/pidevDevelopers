@@ -23,28 +23,34 @@ import smartravel.util.Connexion;
  */
 public class RespDao {
     
+    public static int a ;
+    
     public RespDao(){}
     
     public void insertAgence(Responsable rsp){
          
-        String requete = "INSERT INTO respo_agence VALUES (?,?,?,?,?,?,?)";
+        String requete = "INSERT INTO respo_agence VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
-          //  ps.setInt(1,null);
-            System.out.println("azertyu");
-            ps.setInt(1,1);
+            System.out.println("xxxxxxxxxxxxxxxxxxxxx");
+            ps.setInt(1,a);
             ps.setString(2, rsp.getNom()); 
             ps.setString(3, rsp.getPrenom());
-            ps.setString(4,rsp.getEmail());
-            ps.setString(5,rsp.getPassword());
-            ps.setDate(6,null);
-            ps.setString(7,rsp.getNom_agence());
+            ps.setInt(4, (int) rsp.getCin());
+            ps.setString(5,rsp.getEmail());
+            ps.setString(6,rsp.getPassword());
+           
+            ps.setDate(7,null);
+            ps.setString(8,rsp.getNom_agence());
+            ps.setBoolean(9,false);
+            ps.setString(10, rsp.getCommentaire());
+            
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion " + ex.getMessage());
-        }
+        } a=a+1;
     }
     
     public void deleteAgence(Responsable rsp){
@@ -74,7 +80,7 @@ public class RespDao {
          
            while(resultat.next()){
                 Responsable rsp = new Responsable();
-                
+             
                 rsp.setNom(resultat.getString(2));
                 rsp.setPrenom(resultat.getString(3));
                 rsp.setEmail(resultat.getString(4));

@@ -347,6 +347,11 @@ public class VoyageurForm extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jList1);
 
         jButton4.setText("Annuler");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

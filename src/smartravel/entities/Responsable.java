@@ -6,6 +6,8 @@
 
 package smartravel.entities;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author Belgacem
@@ -14,7 +16,8 @@ public class Responsable extends Compte{
   
     public String nom_agence ;
     public Number cin ;
-    
+    public boolean activated = false ;
+    public String commentaire;
     public Responsable(){
     }
     public Responsable(String nom,Number cin){
@@ -36,6 +39,22 @@ public class Responsable extends Compte{
     public void setCin(Number cin) {
         this.cin = cin;
      }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public void setActivated(boolean activated) {
+        this.activated = activated;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
 
     
 }
