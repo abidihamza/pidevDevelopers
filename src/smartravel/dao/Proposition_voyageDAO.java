@@ -85,11 +85,11 @@ public class Proposition_voyageDAO {
     }
      public void insertproposition(Voyage v) {
 
-        String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String requete = "INSERT INTO Voyage (moyen_transport,destination,budget,nb_place,programme,itineraire,date_depart,date_retour,	voyage_responsable,Type)VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             System.out.println("xxxxxxxxxxx"); 
-            ps.setInt(1,null);
+           // ps.setInt(1,);
             ps.setString(2, null); 
             ps.setString(3, v.getDestination());
             ps.setFloat(4, v.getBudget());
