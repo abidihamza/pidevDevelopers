@@ -336,6 +336,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
         nom.setText("");
         nomResp.setText("");
         prenomResp.setText("");
+      
         passwd1.setText("");
         passwd2.setText("");
         mail.setText("");
