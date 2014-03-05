@@ -8,6 +8,7 @@ package smartravel.dao;
  *
  * @author MBM info
  */
+import java.sql.Date;
 import smartravel.entities.Voyage;
 import smartravel.util.Connexion;
 import java.sql.PreparedStatement;
@@ -16,7 +17,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import static smartravel.dao.Annonce_voyageDAO.a;
 public class Proposition_voyageDAO {
+     public static int a=1;
    
     
     public List<Voyage> DisplayAllVoyage() {
@@ -82,17 +85,21 @@ public class Proposition_voyageDAO {
     }
      public void insertproposition(Voyage v) {
 
-        String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?)";
+        String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
-            ps.setString(2, v.getMoyen_transport()); 
+            System.out.println("xxxxxxxxxxx"); 
+            ps.setInt(1,null);
+            ps.setString(2, null); 
             ps.setString(3, v.getDestination());
             ps.setFloat(4, v.getBudget());
             ps.setInt(5, v.getNb_place());
-            ps.setString(6, v.getProgramme());
+            ps.setString(6, null);
             ps.setString(7, v.getItineraire());
-            ps.setDate(8, v.getDate_depart());
-            ps.setDate(9, v.getDate_retour());
+             ps.setDate(8, new java.sql.Date(v.getDate_depart().getTime()));
+            ps.setDate(9,new java.sql.Date(v.getDate_retour().getTime()));
+            ps.setInt(10, -1);
+            ps.setString(11, "proposition");
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
