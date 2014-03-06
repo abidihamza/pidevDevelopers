@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class Annonce_voyageDAO {
        
-    public static int a=1;
+    public static int a;
         public void insertAnnonce(Voyage v) {
 
         String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?,?,?)";
