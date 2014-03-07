@@ -23,7 +23,7 @@ import smartravel.util.Connexion;
  */
 public class RespDao {
     
-    public static int a ;
+   
     
     public RespDao(){}
     
@@ -33,7 +33,7 @@ public class RespDao {
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             System.out.println("xxxxxxxxxxxxxxxxxxxxx");
-            ps.setInt(1,a);
+            ps.setInt(1,0);
             ps.setString(2, rsp.getNom()); 
             ps.setString(3, rsp.getPrenom());
             ps.setInt(4, (int) rsp.getCin());
@@ -50,7 +50,7 @@ public class RespDao {
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion " + ex.getMessage());
-        } a=a+1;
+        } 
     }
     
     public void deleteAgence(Responsable rsp){
