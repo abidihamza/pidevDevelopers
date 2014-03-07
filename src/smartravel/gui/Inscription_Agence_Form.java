@@ -21,6 +21,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
     public Inscription_Agence_Form() {
         super("Inscription");
         initComponents();
+        this.dispose();
     }
 
     /**
@@ -410,6 +411,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
         Inscription_Agence_Form   agence =  new Inscription_Agence_Form();
                            agence.setSize(1020, 720);
                            agence.setVisible(true);
+                          
             }
         });
     }

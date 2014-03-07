@@ -37,7 +37,6 @@ public class AdminForm extends javax.swing.JFrame {
         jFrame2 = new javax.swing.JFrame();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
@@ -78,6 +77,7 @@ public class AdminForm extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -113,19 +113,6 @@ public class AdminForm extends javax.swing.JFrame {
         jTabbedPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jTabbedPane2.setInheritsPopupMenu(true);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1056, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 862, Short.MAX_VALUE)
-        );
-
-        jTabbedPane2.addTab(" Statistiques", jPanel2);
 
         jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "OAziz VOYAGE", "Botria Travel", "Tunisian Tourist Travel", " " };
@@ -439,6 +426,19 @@ public class AdminForm extends javax.swing.JFrame {
         );
 
         jTabbedPane2.addTab("Gestion des voyageurs", jPanel4);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1056, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 862, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab(" Statistiques", jPanel2);
 
         jScrollPane6.setViewportView(jTabbedPane2);
 

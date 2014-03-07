@@ -23,7 +23,7 @@ public class ReservationDAO {
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             ps.setString(1, R.getVoyageur_R().toString());
-            ps.setString(2, R.getAnnonce_R().toString());
+//            ps.setString(2, R.getAnnonce_R().toString());
            
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
@@ -39,7 +39,7 @@ public class ReservationDAO {
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
             ps.setString(1,  R.getVoyageur_R().toString());
-            ps.setString(2, R.getAnnonce_R().toString());
+//            ps.setString(2, R.getAnnonce_R().toString());
             ps.setDate(3, (Date) R.getDateReservation());
             ps.setString(4, R.getRef_R());
             ps.executeUpdate();

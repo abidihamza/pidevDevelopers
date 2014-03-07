@@ -7,7 +7,9 @@
 package smartravel.gui;
 
 import javax.swing.JOptionPane;
+import smartravel.dao.AdminDAO;
 import smartravel.dao.clientDao;
+import smartravel.entities.Administrateur;
 import smartravel.entities.Voyageur;
 
 /**
@@ -22,7 +24,7 @@ public class accueilForm extends javax.swing.JFrame {
     public accueilForm() {
         super("Accueil de Smartravel");
         initComponents();
-      
+      this.dispose();
     }
     
     protected  void paint(){
@@ -211,6 +213,7 @@ public class accueilForm extends javax.swing.JFrame {
         });
 
         jButton4.setText("Se connecter");
+        jButton4.setEnabled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -315,22 +318,26 @@ public class accueilForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        clientDao cltdao = new clientDao() ;
-       Voyageur voy    ;
-       voy = cltdao.authentication(mail.getText());
-       
-       
-    if (passwd.getText().equals(voy.password) && mail.getText().equals(voy.email)) {
-        VoyageurForm vf = new VoyageurForm();
+                
+              
+      if(mail.getText()=="")
+            JOptionPane.showMessageDialog(null, "remplissez les champs");  
+      else if(mail.getText()!=""){
+         clientDao cltdao = new clientDao() ;
+         Voyageur voy    ;
+         voy = cltdao.authentication(mail.getText());
+          if (passwd.getText().equals(voy.password) && mail.getText().equals(voy.email)) {
+          
+          VoyageurForm vf = new VoyageurForm();
          
         this.setVisible(false); 
          vf.setVisible(true);
       
-                   }else
-           JOptionPane.showMessageDialog(null, "invalid inseertion");     // TODO add your handling code here:
+                   }else{
+             JOptionPane.showMessageDialog(null, "invalid inseertion");     // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+     }}
+          
     private void mailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mailActionPerformed
@@ -374,6 +381,7 @@ public class accueilForm extends javax.swing.JFrame {
               accueilForm acf =  new accueilForm();
               acf.setSize(1280, 720);
               acf.setVisible(true);
+              
             }
         });
     }

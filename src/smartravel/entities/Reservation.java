@@ -15,20 +15,20 @@ import java.util.Date;
 public class Reservation {
    String ref_reservation;
    Voyageur V ;
-   Annonce C;
+//   Annonce C;
    Date date_reservation;
      
    public Reservation()
    {
        ref_reservation="";
    V=new Voyageur();
-   C=new Annonce();
+//   C=new Annonce();
    date_reservation=new Date();
    }
-   public Reservation(Voyageur V,Annonce C)
+//   public Reservation(Voyageur V,Annonce C)
    {
    this.V=V;
-   this.C=C;
+//   this.C=C;
    date_reservation=new Date();
    }
    public String getRef_R()
@@ -37,8 +37,8 @@ public class Reservation {
    public Voyageur getVoyageur_R()
    {return this.V;}
    
-   public Annonce getAnnonce_R()
-   {return this.C;}
+//   public Annonce getAnnonce_R()
+//   {return this.C;}
    
    public Date getDateReservation()
    {return this.date_reservation;}
@@ -49,8 +49,8 @@ public class Reservation {
    public void setVoyageur_R(Voyageur V)
    {this.V=V;}
    
-   public void setAnnonce_R(Annonce C)
-   {this.C=C;}
+//   public void setAnnonce_R(Annonce C)
+//   {this.C=C;}
    
    public void setDateReservation(Date d)
    {this.date_reservation=d;}

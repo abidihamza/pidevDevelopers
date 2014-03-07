@@ -20,15 +20,18 @@ public class clientDao {
     
     public Voyageur authentication(String mail ){
        
-        String requete = "select * from voyageur where e_mail ='taher@esprit.tn'";
+     String requete = "select * from voyageur where id_voyageur=? or nom = ? or prenom =? or  e_mail =?";
        try{
         PreparedStatement ps;
           ps = Connexion.getInstance().prepareStatement(requete);
-               
-               if(ps != null)
-               System.out.println(" connexion établit ");
-        ResultSet resultat = ps.executeQuery();
-       Voyageur voy = new Voyageur();
+          ps.setInt(1, 0);
+          ps.setString(2, null);
+          ps.setString(3, null);
+          ps.setString(4, mail);
+               if(ps!= null)
+                System.out.println(" connexion établit ");
+                ResultSet resultat = ps.executeQuery();
+                Voyageur voy = new Voyageur();
         
         while (resultat.next()){
             voy.setNom(resultat.getString(2));
@@ -43,7 +46,5 @@ public class clientDao {
             return null;
         }
        }
-    
-    
-    
+      
 }

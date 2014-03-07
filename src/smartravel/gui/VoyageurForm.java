@@ -33,6 +33,7 @@ public class VoyageurForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -313,6 +314,8 @@ public class VoyageurForm extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Proposition voyage", jPanel3);
 
+        jScrollPane3.setViewportView(jTabbedPane2);
+
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
@@ -325,11 +328,11 @@ public class VoyageurForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1666, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
         );
 
         pack();
@@ -377,10 +380,10 @@ public class VoyageurForm extends javax.swing.JFrame {
         Reservation Res=new Reservation();
         String x=jTextField1.toString();
         String y=jTextField1.toString();
-        Annonce A=new Annonce(x);
-        Voyageur V=new Voyageur(y);
-        Res.setAnnonce_R(A);
-        Res.setVoyageur_R(V);
+//        Annonce A=new Annonce(x);
+//        Voyageur V=new Voyageur(y);
+//        Res.setAnnonce_R(A);
+//        Res.setVoyageur_R(V);
 
         R.insertDepot(Res);
 
@@ -449,6 +452,7 @@ public class VoyageurForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;

@@ -142,19 +142,24 @@ public class AthentForm extends javax.swing.JFrame implements ActionListener{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
+       
+       if(name.getText()=="")
+            JOptionPane.showMessageDialog(null, "remplissez les champs");
+       else if(name.getText()!=""){
+           
        AdminDAO adminDao = new AdminDAO() ;
        Administrateur admin    ;
        admin = adminDao.authentication(name.getText());
        
-       
-    if (passwd.getText().equals(admin.password) && name.getText().equals(admin.login)) {
-        AdminForm adf = new AdminForm();
+        if (passwd.getText().equals(admin.password) && name.getText().equals(admin.login)) {
+         AdminForm adf = new AdminForm();
          this.setVisible(false); 
          adf.setVisible(true);
       
-                   }else
-           JOptionPane.showMessageDialog(null, "invalid inseertion");
-        
+                   }else{
+           JOptionPane.showMessageDialog(null, "invalid insertion");
+       }}
+           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jButton1StateChanged

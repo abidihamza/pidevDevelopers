@@ -17,22 +17,24 @@ public class AdminDAO {
   }
         public Administrateur authentication(String login ){
        
-        String requete = "select * from administrateur where login ='admin'";
+       String requete = "select * from administrateur where login=?";
        try{
         PreparedStatement ps;
-          ps = Connexion.getInstance().prepareStatement(requete);
-               
+        ps = Connexion.getInstance().prepareStatement(requete);
+        ps.setString(1, login);       
                if(ps != null)
                System.out.println(" connexion établit ");
-        ResultSet resultat = ps.executeQuery();
-        Administrateur admin = new Administrateur();
+               System.out.println("xx"+login);
+               ResultSet resultat = ps.executeQuery();
+               Administrateur admin = new Administrateur();
         
         while (resultat.next()){
-            admin.setLogin(resultat.getString(2));
-            admin.setNom(resultat.getString(3));
-            admin.setPrenom(resultat.getString(4));
-            admin.setEmail(resultat.getString(5));
-            admin.setPassword(resultat.getString(6));
+            
+            admin.setLogin(resultat.getString(1));
+            admin.setNom(resultat.getString(2));
+            admin.setPrenom(resultat.getString(3));
+            admin.setEmail(resultat.getString(4));
+            admin.setPassword(resultat.getString(5));
           }
         return admin;
         }
