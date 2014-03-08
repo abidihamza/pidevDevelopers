@@ -6,7 +6,7 @@
 
 package smartravel.dao;
 
-import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +26,41 @@ public class RespDao {
    
     
     public RespDao(){}
+    
+    
+        public Responsable authentication(String mail) {
+
+        String requete;
+        requete = "select * from respo_agence where id_responsable=? or nom=? or prenom=? or CIN=? or e_mail=?";
+       try{
+        PreparedStatement ps;
+          ps = Connexion.getInstance().prepareStatement(requete);
+           System.out.println("xxxxxx");
+          ps.setInt(1, 0);
+          ps.setString(2, null);
+          ps.setString(3, null);
+          ps.setInt(4,0);
+          ps.setString(5, mail);
+          
+             
+                ResultSet resultat = ps.executeQuery();
+                Responsable rsp = new Responsable();
+        
+        while (resultat.next()){
+            rsp.setNom(resultat.getString(2));
+            System.out.println(resultat.getString(2));
+            rsp.setPrenom(resultat.getString(3));
+            rsp.setCin(resultat.getInt(4));
+            rsp.setEmail(resultat.getString(5));
+            rsp.setPassword(resultat.getString(6));
+          }
+        return rsp;
+        }
+        catch(SQLException ex){
+            System.out.println("erreur lors du chargement"+ex.getMessage());
+            return null;
+        }          
+    }
     
     public void insertAgence(Responsable rsp){
          
@@ -97,6 +132,8 @@ public class RespDao {
             return null;
         }
     }
+
+
 
     
 }
