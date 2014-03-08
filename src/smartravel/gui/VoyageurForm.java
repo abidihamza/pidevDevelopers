@@ -377,13 +377,13 @@ public class VoyageurForm extends javax.swing.JFrame {
         Reservation Res=new Reservation();
         String x=jTextField1.toString();
         String y=jTextField1.toString();
-        Annonce A=new Annonce(x);
+   /*     Annonce A=new Annonce(x);
         Voyageur V=new Voyageur(y);
         Res.setAnnonce_R(A);
         Res.setVoyageur_R(V);
 
         R.insertDepot(Res);
-
+*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

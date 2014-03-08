@@ -19,6 +19,15 @@ public class facture {
     Reservation R;
     float somme_facture;
     Date date_payement_facture;
+
+    public int getNumero_serie_facture() {
+        return numero_serie_facture;
+    }
+
+    public void setNumero_serie_facture(int numero_serie_facture) {
+        this.numero_serie_facture = numero_serie_facture;
+    }
+    int numero_serie_facture;
     
 
   
