@@ -20,13 +20,13 @@ import java.util.List;
  */
 public class Annonce_voyageDAO {
        
-    public static int a=1;
+    public static int a;
         public void insertAnnonce(Voyage v) {
 
         String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
-           System.out.println("xxxxxxxxxxx"); 
+           //pour detecter System.out.println("xxxxxxxxxxx"); 
             ps.setInt(1, a); 
             ps.setString(2, v.getMoyen_transport()); 
             ps.setString(3, v.getDestination());
@@ -113,8 +113,8 @@ public class Annonce_voyageDAO {
              
       public List<Voyage> DisplayAllVoyage() {
         List<Voyage> listeVoyage = new ArrayList<Voyage>();
-
-        String requete = "select * from voyage";
+        String Montype="Annonce";
+        String requete = " select * from voyage  where Type='"+Montype+"' ";
         try {
             Statement statement = Connexion.getInstance().createStatement();
             ResultSet resultat = statement.executeQuery(requete);

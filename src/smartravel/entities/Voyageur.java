@@ -10,7 +10,7 @@ package smartravel.entities;
  *
  * @author Belgacem
  */
-public class Voyageur  {
+public class Voyageur extends Compte{
     
     
     
