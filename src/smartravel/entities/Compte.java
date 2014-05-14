@@ -24,7 +24,8 @@ public class Compte {
    
     
     public Compte(){
-    }
+    } 
+    
 
     public String getNom() {
         return nom;

@@ -18,8 +18,9 @@ import javax.swing.table.AbstractTableModel;
 //import smartravel.authResponsable;
 
 
-public class AnnonceTable extends AbstractTableModel{
-     String [] titres ={"destination","budget","date_depart","date_retour","moyen_transport","itineraire","nb_place","programme"};
+public class AnnonceTableResume extends AbstractTableModel{
+     String [] titres ={"destination","budget","date_depart","date_retour","moyen_transport","itineraire"};
+     // String [] titres ={"id_voyage", "destination","budget","date_depart","date_retour","moyen_transport","itineraire","nb_place","programme"};
      //int voyage_responsable;    
     //List<Offre> offre=new ArrayList<Offre>();  
      List<Voyage> annonces=new ArrayList<Voyage>();
@@ -43,19 +44,13 @@ public class AnnonceTable extends AbstractTableModel{
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
-            //case 0: return annonces.get(rowIndex).getId_voyage();
             case 0: return annonces.get(rowIndex).getDestination();
             case 1: return annonces.get(rowIndex).getBudget();
             case 2: return annonces.get(rowIndex).getDate_depart();
             case 3: return annonces.get(rowIndex).getDate_retour();     
             case 4: return annonces.get(rowIndex).getMoyen_transport();
             case 5: return annonces.get(rowIndex).getItineraire();    
-            case 6: return annonces.get(rowIndex).getNb_place(); 
-            case 7: return annonces.get(rowIndex).getProgramme();                              
-   
-   
- 
-                 
+                    
             default :
                 throw new IllegalArgumentException();
         }
@@ -66,7 +61,7 @@ public class AnnonceTable extends AbstractTableModel{
     
     }
 
-    public AnnonceTable() {
+    public AnnonceTableResume() {
   
      Annonce_voyageDAO adao = new Annonce_voyageDAO();
    //annonces= adao.DisplayAllOffreByID(ConnectAgence.getId_agence());

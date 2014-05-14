@@ -74,7 +74,6 @@ public class RespDao {
             ps.setInt(4, (int) rsp.getCin());
             ps.setString(5,rsp.getEmail());
             ps.setString(6,rsp.getPassword());
-           
             ps.setDate(7,null);
             ps.setString(8,rsp.getNom_agence());
             ps.setBoolean(9,false);
@@ -85,43 +84,82 @@ public class RespDao {
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion " + ex.getMessage());
-        } 
+        }  }
+    
+    
+    public Responsable selectByName(String nom) {
+
+        String requete;
+        requete = "select * from respo_agence where nom_agence='"+nom+"'";
+       try{
+        Statement statement = Connexion.getInstance().createStatement();
+           System.out.println("xxxxx"+requete);
+         ResultSet resultat = statement.executeQuery(requete);
+           System.out.println("yyyyy");
+         Responsable rsp = new Responsable();
+        
+        while (resultat.next()){
+            rsp.setNom(resultat.getString(2));
+            rsp.setPrenom(resultat.getString(3));
+            rsp.setCin(resultat.getInt(4));
+            rsp.setEmail(resultat.getString(5));
+            rsp.setPassword(resultat.getString(6));
+            rsp.setDate_inscrip(resultat.getDate(7));
+            rsp.setActivated(resultat.getBoolean(9));
+            rsp.setCommentaire(resultat.getString(10));
+          }
+        return rsp;
+        }
+        catch(SQLException ex){
+            System.out.println("erreur lors du chargement"+ex.getMessage());
+            return null;
+        }          
     }
+    
+      public void changeState(String nom){
+
+          String requete = "Update respo_agence set active= not(active) where nom_agence='"+nom+"'";
+        try {
+         Statement statement = Connexion.getInstance().createStatement();
+           
+        statement.executeUpdate(requete);
+            System.out.println("agence confirmé");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la modification "+ex.getMessage());
+        } }
+    
     
     public void deleteAgence(Responsable rsp){
 
-          String requete = "delete from respo_agence where e_mail=?";
+          String requete = "delete from respo_agence where e_mail='"+rsp.getEmail()+"'";
         try {
-            PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
-            ps.setString(4,rsp.getEmail());
-            ps.executeUpdate();
+            Statement ps = Connexion.getInstance().createStatement();
+        
+            ps.executeUpdate(requete);
             System.out.println("Suppression effectuée avec succès");
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de la suppression "+ex.getMessage());
-        }
-    }
+        } }
     
      public List<Responsable> DisplayAllRespo (){
-
-
         List<Responsable> listResp = new ArrayList<Responsable>();
-
-        String requete = "select * from Responsable";
+        String requete = "select * from respo_agence where active=true" ;
         try {
            Statement statement = Connexion.getInstance().createStatement();
-            
            ResultSet resultat = statement.executeQuery(requete);
-         
            while(resultat.next()){
                 Responsable rsp = new Responsable();
-             
                 rsp.setNom(resultat.getString(2));
                 rsp.setPrenom(resultat.getString(3));
-                rsp.setEmail(resultat.getString(4));
-                rsp.setPassword(resultat.getString(5));
-                rsp.setDate_inscrip(resultat.getDate(6));
-                rsp.setNom_agence(resultat.getString(7));
+                rsp.setCin(resultat.getInt(4));
+                rsp.setEmail(resultat.getString(5));
+                rsp.setPassword(resultat.getString(6));
+                rsp.setDate_inscrip(resultat.getDate(7));
+                rsp.setNom_agence(resultat.getString(8));
+               // rsp.setActivated(resultat.getBoolean(9));
+                rsp.setCommentaire(resultat.getString(10));
 
                 listResp.add(rsp);
             }
@@ -134,6 +172,42 @@ public class RespDao {
     }
 
 
+    public List<Responsable> DisplayNewRespo (){
 
+       List<Responsable> listResp = new ArrayList<Responsable>();
+
+        String requete = "select * from respo_agence where active=false";
+        try {
+           Statement statement = Connexion.getInstance().createStatement();
+           ResultSet resultat = statement.executeQuery(requete);
+              System.out.println("xxxxxxxxx");
+
+           while(resultat.next()){
+                Responsable rsp = new Responsable();
+                
+                rsp.setNom(resultat.getString(2));
+                rsp.setPrenom(resultat.getString(3));
+                rsp.setCin(resultat.getInt(4));
+                rsp.setEmail(resultat.getString(5));
+                rsp.setPassword(resultat.getString(6));
+                rsp.setDate_inscrip(resultat.getDate(7));
+                rsp.setNom_agence(resultat.getString(8));
+               // rsp.setActivated(resultat.getBoolean(9));
+                rsp.setCommentaire(resultat.getString(10));
+                listResp.add(rsp);
+                System.out.println(rsp.getEmail());
+                            System.out.println("yyyyyyyy");
+
+            }
+            return listResp;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des données "+ex.getMessage());
+            return null;
+        }
+    }
+    
+    
+    
     
 }

@@ -20,14 +20,14 @@ import java.util.List;
  */
 public class Annonce_voyageDAO {
        
-    public static int a;
+    
         public void insertAnnonce(Voyage v) {
 
         String requete = "INSERT INTO Voyage VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
            //pour detecter System.out.println("xxxxxxxxxxx"); 
-            ps.setInt(1, a); 
+            ps.setInt(1, 0); 
             ps.setString(2, v.getMoyen_transport()); 
             ps.setString(3, v.getDestination());
             ps.setFloat(4, v.getBudget());
@@ -46,7 +46,7 @@ public class Annonce_voyageDAO {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion " + ex.getMessage());
         }
-        a=a+1;
+        
     }
         
          public void updateAnnonce(Voyage v) {

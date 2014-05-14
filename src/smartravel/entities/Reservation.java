@@ -13,47 +13,53 @@ import java.util.Date;
  * @author wassou
  */
 public class Reservation {
-   String ref_reservation;
-   Voyageur V ;
-//   Annonce C;
-   Date date_reservation;
+  private int id_reservation;
+   private String voyageur ;//tetbadel
+   private String voyage;//tetbadel
+   private String  date_reservation;
      
    public Reservation()
    {
-       ref_reservation="";
-   V=new Voyageur();
-//   C=new Annonce();
-   date_reservation=new Date();
+   Date D=new Date();
+   date_reservation=D.toString();
    }
-//   public Reservation(Voyageur V,Annonce C)
+   public Reservation(String voyageur,String voyage)
    {
-   this.V=V;
-//   this.C=C;
-   date_reservation=new Date();
+   this.voyageur=voyageur;
+   this.voyage=voyage;
+   Date D=new Date();
+   date_reservation=D.toString();
    }
-   public String getRef_R()
-   {return this.ref_reservation;}
+  // public String getRef_R()
+   //{return this.ref_reservation;}
+   public int get_reservation()
+   {
+   return this.id_reservation;
+   }
+   public void set_reservation(int a)
+   {
+   this.id_reservation=a;
+   }
    
-   public Voyageur getVoyageur_R()
-   {return this.V;}
+   public String getVoyageur_R()
+   {return this.voyageur;}
    
-//   public Annonce getAnnonce_R()
-//   {return this.C;}
+   public String getVoyage_R()
+   {return this.voyage;}
    
-   public Date getDateReservation()
+   public String getDateReservation()
    {return this.date_reservation;}
    
-   public void setref_R(String ref_R)
-   {this.ref_reservation=ref_R;}
+ //  public void setref_R(String ref_R)
+   //{this.ref_reservation=ref_R;}
    
-   public void setVoyageur_R(Voyageur V)
-   {this.V=V;}
+   public void setVoyageur_R(String V)
+   {this.voyageur=V;}
    
-//   public void setAnnonce_R(Annonce C)
-//   {this.C=C;}
+   public void setVoyage_R(String C)
+   {this.voyage=C;}
    
-   public void setDateReservation(Date d)
-   {this.date_reservation=d;}
+   
 
    
    

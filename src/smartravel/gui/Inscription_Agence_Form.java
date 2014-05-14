@@ -6,6 +6,7 @@
 
 package smartravel.gui;
 
+import javax.swing.JOptionPane;
 import smartravel.dao.RespDao;
 import smartravel.entities.Responsable;
 
@@ -87,11 +88,12 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(150, 40, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
 
         jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 204, 253));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setAutoscrolls(true);
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -100,7 +102,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(153, 0, 153));
         jLabel3.setText("SmarTravel");
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 253));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setForeground(new java.awt.Color(255, 0, 51));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -304,12 +306,12 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
                         .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(203, Short.MAX_VALUE)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(116, 116, 116))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -318,7 +320,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(66, 66, 66)
@@ -333,10 +335,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1033, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1044, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,6 +371,19 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+          if(nom.getText()=="" || nomResp.getText()=="" || prenomResp.getText() == ""||passwd1.getText()=="" ||passwd2.getText()=="")
+      {    
+          JOptionPane.showMessageDialog(null, "remplissez les champs");  
+      } else {if(!mail.getText().contains("@")){
+           JOptionPane.showMessageDialog(null, " verifiez votre mail ");  
+      }
+      else {if(mail.getText().contains("@")){ 
+          if(passwd1.getText()!=passwd2.getText()){
+           JOptionPane.showMessageDialog(null, "mot de passe n'est pas identique"); 
+      }
+      else
+      {   
+        
         Responsable rsp = new Responsable();
         
         rsp.setNom_agence(nom.getText());
@@ -383,7 +395,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
         rsp.setCommentaire(commentaire.getText());
         
         RespDao rspDao = new RespDao();
-        rspDao.insertAgence(rsp);
+                }}}}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CINActionPerformed
@@ -423,7 +435,7 @@ public class Inscription_Agence_Form extends javax.swing.JFrame {
             public void run() {
         
         Inscription_Agence_Form   agence =  new Inscription_Agence_Form();
-                           agence.setSize(1020, 700);
+        
                            agence.setVisible(true);
                           
             }

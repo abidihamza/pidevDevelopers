@@ -6,9 +6,11 @@
 
 package smartravel.dao;
 
+import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import smartravel.entities.Voyage;
+import smartravel.entities.*;
 import smartravel.util.Connexion;
 
 /**
@@ -17,17 +19,26 @@ import smartravel.util.Connexion;
  */
 public class OffreDAO {
     
-    public void insertDepot(Voyage v) throws SQLException {
-        String requete = "INSERT INTO Voyage VALUES (?)";
+    
+    public void insertOffre(Voyage v) throws SQLException {
+       
+      String requete= "INSERT INTO voyage VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
-            ps.setString(2, v.getDestination());
-            ps.setFloat(3, v.setBudget());
-            ps.setDate(4, v.setDate_depart());
-            ps.setDate(5, v.setDate_retour());
-            ps.setString(6, v.setMoyen_transport());
-            ps.setString(7, v.setProgramme());
-             ps.executeUpdate();
+          
+            System.out.println("xxxxxxxxxxx");
+            ps.setInt(1,0);
+            ps.setString(2, v.getMoyen_transport());
+            ps.setString(3, v.getDestination());
+            ps.setFloat(4, v.getBudget());
+            ps.setInt(5, -1);
+            ps.setString(6, null);
+            ps.setString(7, null);
+            ps.setDate(8, new java.sql.Date(v.getDate_depart().getTime()));
+            ps.setDate(9,new java.sql.Date(v.getDate_retour().getTime()));
+            ps.setInt(10, -1);
+            ps.setString(11, "Offre");
+            ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);

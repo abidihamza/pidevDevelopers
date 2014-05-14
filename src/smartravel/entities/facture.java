@@ -19,6 +19,19 @@ public class facture {
     Reservation R;
     float somme_facture;
     Date date_payement_facture;
+	int montant;
+    String id_voyage ;
+    String id_voyageur;
+    String date_facturation;
+
+    public int getNumero_serie_facture() {
+        return numero_serie_facture;
+    }
+
+    public void setNumero_serie_facture(int numero_serie_facture) {
+        this.numero_serie_facture = numero_serie_facture;
+    }
+    int numero_serie_facture;
     
 
   
@@ -56,6 +69,14 @@ public facture(int id_facture, List<Voyageur> LV,Voyageur V,Reservation R, float
    this.V=V;
    }
    
+    public String getIdVoyageur()
+{return this.id_voyageur;}
+
+   
+   public void setIdVoyageur(String V)
+   {
+   this.id_voyageur=V;
+   }
    public Reservation getReservation()
    {
    return this.R;
@@ -79,7 +100,22 @@ public facture(int id_facture, List<Voyageur> LV,Voyageur V,Reservation R, float
     public void setDate_payement_facture(Date date_payement_facture) {
         this.date_payement_facture = date_payement_facture;
     }
+        
+		     public  String get_idvoyage()
+   {return this.id_voyage;}
+   
+   public void set_IdVoyage(String a)
+   {this.id_voyage=a;}
 
-    
+
+   
+   public int get_Montant()
+{return this.montant;}
+
+   
+   public void set_Montant(int V)
+   {
+   this.montant=V;
+   }
     
 }

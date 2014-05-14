@@ -45,7 +45,10 @@ public class AthentForm extends javax.swing.JFrame implements ActionListener{
         passwd = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Authentification");
+        setBounds(new java.awt.Rectangle(150, 60, 0, 0));
 
+        jPanel1.setBackground(new java.awt.Color(153, 240, 240));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 

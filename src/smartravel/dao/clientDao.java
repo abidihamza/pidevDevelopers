@@ -9,11 +9,13 @@ package smartravel.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import smartravel.entities.Voyageur;
 import smartravel.util.Connexion;
-
 /**
  *
  * @author Belgacem
@@ -75,26 +77,77 @@ public class clientDao {
         } 
     }
     
+      public Voyageur selectByName(String nom) {
+
+        String requete;
+        requete = "select * from voyageur where nom ='"+nom+"'";
+       try{
+        Statement statement = Connexion.getInstance().createStatement();
+         
+           ResultSet resultat = statement.executeQuery(requete);
+           System.out.println("yyyyy");
+       Voyageur voy = new Voyageur();
+        
+        while (resultat.next()){
+            voy.setNom(resultat.getString(2));
+            voy.setPrenom(resultat.getString(3));
+            voy.setEmail(resultat.getString(5));
+            
+          }
+        return voy;
+        }
+        catch(SQLException ex){
+            System.out.println("erreur lors du chargement"+ex.getMessage());
+            return null;
+        }          
+    }
        
         
     
-    public void deleteAgence(String name){
+    public void deleteClient(String name){
 
-          String requete = "delete from voyageur where nom = ?";
+          String requete = "delete from voyageur where nom ='"+name+"'";
         try {
-            PreparedStatement ps = Connexion.getInstance().prepareStatement(requete);
-            ps.setString(4,name);
-            ps.executeUpdate();
+           Statement ps = Connexion.getInstance().createStatement();
+        
+            ps.executeUpdate(requete);
             System.out.println("Suppression effectuée avec succès");
-        } catch (SQLException ex) {
+     } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de la suppression "+ex.getMessage());
         }
     }
        
+        public List<Voyageur> DisplayAllVoy (){
+
+
+        List<Voyageur> listVoy = new ArrayList<Voyageur>();
+
+        String requete = "select * from voyageur";
+        try {
+           Statement statement = Connexion.getInstance().createStatement();
+            
+           ResultSet resultat = statement.executeQuery(requete);
+         
+           while(resultat.next()){
+                Voyageur v = new Voyageur();
+             
+                v.setNom(resultat.getString(2));
+                v.setPrenom(resultat.getString(3));
+                v.setEmail(resultat.getString(4));
+                v.setPassword(resultat.getString(5));
+                v.setDate_inscrip(resultat.getDate(6));
+                
+                listVoy.add(v);
+            }
+            return listVoy;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des données "+ex.getMessage());
+            return null;
+        }
        
        
-       
-       }
+       }}
       
 
